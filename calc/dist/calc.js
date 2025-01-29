@@ -1,35 +1,48 @@
 var num1 = document.getElementById("num1");
 var num2 = document.getElementById("num2");
-var addbtn = document.getElementById("Add");
+var addbtn = document.getElementById("add");
 var subbtn = document.getElementById("sub");
 var multbtn = document.getElementById("mult");
 var divbtn = document.getElementById("divide");
 var printresult = document.getElementById("result");
-function addnumber() {
+function getNumbers() {
     var a = parseFloat(num1.value);
-    var b = parseFloat(num1.value);
-    var result = a + b;
-    printresult.textContent = result.toString();
+    var b = parseFloat(num2.value);
+    if (isNaN(a) || isNaN(b)) {
+        printresult.textContent = "נא להזין מספרים תקינים";
+        return [NaN, NaN];
+    }
+    return [a, b];
 }
-addbtn.addEventListener("click", addnumber);
+function addNumbers() {
+    var _a = getNumbers(), a = _a[0], b = _a[1];
+    if (!isNaN(a) && !isNaN(b)) {
+        printresult.textContent = (a + b).toString();
+    }
+}
+addbtn.addEventListener("click", addNumbers);
 function subtractNumbers() {
-    var a = parseFloat(num1.value);
-    var b = parseFloat(num1.value);
-    var result = a - b;
-    printresult.textContent = result.toString();
+    var _a = getNumbers(), a = _a[0], b = _a[1];
+    if (!isNaN(a) && !isNaN(b)) {
+        printresult.textContent = (a - b).toString();
+    }
 }
 subbtn.addEventListener("click", subtractNumbers);
-function MultiplyNumbers() {
-    var a = parseFloat(num1.value);
-    var b = parseFloat(num1.value);
-    var result = a * b;
-    printresult.textContent = result.toString();
+function multiplyNumbers() {
+    var _a = getNumbers(), a = _a[0], b = _a[1];
+    if (!isNaN(a) && !isNaN(b)) {
+        printresult.textContent = (a * b).toString();
+    }
 }
-multbtn.addEventListener("click", MultiplyNumbers);
-function DivideNumbers() {
-    var a = parseFloat(num1.value);
-    var b = parseFloat(num1.value);
-    var result = a / b;
-    printresult.textContent = result.toString();
+multbtn.addEventListener("click", multiplyNumbers);
+function divideNumbers() {
+    var _a = getNumbers(), a = _a[0], b = _a[1];
+    if (!isNaN(a) && !isNaN(b)) {
+        if (b === 0) {
+            printresult.textContent = "אי אפשר לחלק באפס";
+            return;
+        }
+        printresult.textContent = (a / b).toString();
+    }
 }
-divbtn.addEventListener("click", DivideNumbers);
+divbtn.addEventListener("click", divideNumbers);
