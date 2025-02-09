@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="dist/form.css" />
+</head>
+
+<body>
+    <main class="stack">
+        <h1>Create task</h1>
+        <form class="stack" name="create task">
+            <div class="form-input">
+                <label for="titleInput">Title</label>
+                <input id="titleInput" name="title" type="text" required autofocus />
+            </div>
+            <div class="form-input form-input--inline">
+                <input id="importantCheckbox" name="isImportant" type="checkbox" />
+                <label for="importantCheckbox">Important</label>
+            </div>
+            <div class="form-input">
+                <label for="assigneeDropdown">Assignee</label>
+                <select id="assigneeDropdown" name="assignee">
+                    <option value="111"></option>
+                    <option value="112">Admin</option>
+                    <option value="113">Who else</option>
+                </select>
+            </div>
+            <div class="form-input">
+                <label for="descriptionInput">Description</label>
+                <textarea
+                name="description"
+                id="descriptionInput"
+                rows="8"
+                maxlength="500" ></textarea>
+            </div>
+            <div class="form-input">
+                <label for="moreInfoInput">More info</label>
+                <input
+                    id="moreInfoInput"
+                    name="moreInfo"
+                    type="text"
+                    placeholder="https://contoso.com"
+                    pattern="^https://.*"
+                    inputmode="url" />
+            </div>
+            <div class="cluster">
+                <button>Create</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="/FORM/dist/form.js"></script>
+</body>
+
+</html>
